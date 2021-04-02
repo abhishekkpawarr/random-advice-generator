@@ -17,8 +17,6 @@ class App extends React.Component {
       .get("https://api.adviceslip.com/advice")
       .then((response) => {
         const { advice } = response.data.slip;
-        console.log(advice);
-
         this.setState({ advice: advice });
       })
       .catch((error) => {
