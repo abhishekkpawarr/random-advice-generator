@@ -13,10 +13,21 @@ class App extends React.Component {
   }
 
   fetchAdvice = () => {
+    /*
+    fetch("https://api.adviceslip.com/advice")
+      .then((response) => {
+        // Do stuff with the response
+        let data = response.text();
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("Looks like there was a problem: \n", error);
+      });
+      */
     axios
       .get("https://api.adviceslip.com/advice")
       .then((response) => {
-        const { advice } = response.data.slip;
+        let { advice } = response.data.slip;
         this.setState({ advice: advice });
       })
       .catch((error) => {
