@@ -29,7 +29,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="card">
-          <h3 className="heading">{advice}</h3>
+          <h2 className="heading">{advice}</h2>
           <button className="button" onClick={this.fetchAdvice}>
             <span>GIVE ME ADVICE!</span>
           </button>
