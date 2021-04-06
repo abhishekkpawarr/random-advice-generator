@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
+import HashLoader from "react-spinners/HashLoader";
 
 import "./App.css";
 
 class App extends React.Component {
   state = {
     advice: "",
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -13,26 +15,18 @@ class App extends React.Component {
   }
 
   fetchAdvice = () => {
-    /*
-    fetch("https://api.adviceslip.com/advice")
-      .then((response) => {
-        // Do stuff with the response
-        let data = response.text();
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log("Looks like there was a problem: \n", error);
-      });
-      */
-    axios
-      .get("https://api.adviceslip.com/advice")
-      .then((response) => {
-        let { advice } = response.data.slip;
-        this.setState({ advice: advice });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      axios
+        .get("https://api.adviceslip.com/advice")
+        .then((response) => {
+          let { advice } = response.data.slip;
+          this.setState({ advice: advice, isLoading: false });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 2000);
   };
 
   render() {
@@ -42,7 +36,11 @@ class App extends React.Component {
         <div className="card">
           <h3 className="heading">{advice}</h3>
           <button className="button" onClick={this.fetchAdvice}>
-            <span>GIVE ME ADVICE!</span>
+            {this.state.isLoading ? (
+              <HashLoader size="20px" />
+            ) : (
+              <span>GIVE ME ADVICE!</span>
+            )}
           </button>
         </div>
       </div>
