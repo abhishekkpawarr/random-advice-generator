@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import loadingGif from "./images/spinner.gif";
 
 import "./App.css";
 
