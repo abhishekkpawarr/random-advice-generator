@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import HashLoader from "react-spinners/HashLoader";
+import loadingGif from "./images/spinner.gif";
 
 import "./App.css";
 
@@ -37,7 +37,21 @@ class App extends React.Component {
           <h3 className="heading">{advice}</h3>
           <button className="button" onClick={this.fetchAdvice}>
             {this.state.isLoading ? (
-              <HashLoader size="20px" />
+              <div class="loader flower-04">
+                <div class="loader-container">
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal"></div>
+                  <div class="petal-1"></div>
+                  <div class="petal-1"></div>
+                  <div class="petal-1"></div>
+                </div>
+              </div>
             ) : (
               <span>GIVE ME ADVICE!</span>
             )}
