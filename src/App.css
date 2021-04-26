@@ -52,7 +52,12 @@ footer {
   width: 25px;
 }
 
+.buttons {
+  display: inline-flex;
+}
+
 .button {
+  margin: 10px;
   position: relative;
   outline: none;
   text-decoration: none;
@@ -62,10 +67,10 @@ footer {
   align-items: center;
   cursor: pointer;
   text-transform: uppercase;
-  height: 200px;
-  width: 210px;
-  max-height: 200px;
-  max-width: 210px;
+  min-height: 2.5rem;
+  min-width: 10rem;
+  max-height: 5rem;
+  max-width: 20rem;
   opacity: 1;
   background-color: #ffffff;
   border: 1px solid rgba(22, 76, 167, 0.6);
